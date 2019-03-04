@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title> PRESENSI MASUK </title>
-    <link href="css/bootstrap4.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/sweetalert.css" rel="stylesheet" />
-  <!-- <script src="js/jquery-3.2.1.min.js"></script> -->
+    <link href="../css/bootstrap4.min.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/sweetalert.css" rel="stylesheet" />
+  <!-- <script src="../js/jquery-3.2.1.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   </head>
   <body >
     <header class="card  navbar bg-dark mb-2" >
       <div class="row" style="padding-left:10px:">
-          <img class="img-rounded" src="images/logo.png" height="">
+          <img class="img-rounded" src="../images/logo.png" height="">
     </div>
 
     </header>
@@ -94,10 +94,10 @@
 
 
 
-<script src="js/bootstrap.bundle.min.js"></script>>
+<script src="../js/bootstrap.bundle.min.js"></script>>
 
-<script src="js/sweetalert.min.js"></script>
-<script src="js/jquery.rfid.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<script src="../js/jquery.rfid.js"></script>
 
 
 	<script type="text/javascript">
@@ -112,7 +112,7 @@
 
 		// Called on a good scan (company card recognized)
 		var goodScan = function (cardData) {
-       $("#foto-diri").html("<img src='images/ktp.jpg' class='img-thumbnail rounded'>").hide().fadeIn(3000);
+       $("#foto-diri").html("<img src='../images/ktp.jpg' class='img-thumbnail rounded'>").hide().fadeIn(3000);
        $("#tabel-info").hide().fadeIn(3000);
        $(".loading").hide();
        swal({
