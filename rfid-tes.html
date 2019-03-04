@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> PRESENSI MASUK </title>
+    <link href="css/bootstrap4.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/sweetalert.css" rel="stylesheet" />
+  <!-- <script src="js/jquery-3.2.1.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body >
+    <header class="card  navbar bg-dark mb-2" >
+      <div class="row" style="padding-left:10px:">
+          <img class="img-rounded" src="images/logo.png" height="">
+    </div>
+
+    </header>
+
+
+        <div class="container-fluid" >
+            <div class="row">
+              <div class="col-md-3">
+                  <div class="card text-center">
+                    <div class="card-header ">
+                          Informasi Data Diri
+                    </div>
+                    <div class="card-body" id="foto-diri">
+                      <p>
+                        <i class="fa fa-user fa-4x"></i>
+                      </p>
+                      <h5 class="card-title"> SIDUSA</h5>
+                      <p class="card-text">Sistem Informasi Kependudukan Desa</p>
+                      <div class="loading text-center "><img src="loading.gif" height="50px"></img></div>
+                    </div>
+                    <div class="loading card-footer text-dark" id="text-scan">
+                      Scanning . . . .
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-header">
+                    Data Penduduk
+                  </div>
+                  <div class="card-body">
+                    <div class="loading text-center "><img src="loading.gif" height="50px"></img></div>
+                    <div class="table-responsive" id="tabel-info" style="display:none;">
+                    <table class="table table-striped table-hover table-bordered" id="tb_presensi">
+                        <tr>
+                          <td class="">NIP</td>
+                          <td class="">350718292819</td>
+                        </tr>
+                        <tr>
+                          <td class="">Nama</td>
+                          <td class="">Fiqh Rizki Saputra</td>
+                        </tr>
+                        <tr>
+                          <td class="">Jenis Kelamin</td>
+                          <td class="">Laki - laki</td>
+                        </tr>
+                        <tr>
+                          <td class="">Alamat</td>
+                          <td class="">Griya Bamban Samudera A6, asrikaton,pakis, Malang, Jawa timur</td>
+                        </tr>
+                        <tr>
+                          <td class="">Tempat, Tanggal Lahir</td>
+                          <td class="">Jakarta, 07 Desember 1995</td>
+                        </tr>
+                        <tr>
+                          <td class="">Agama</td>
+                          <td class="">Islam</td>
+                        </tr>
+                        <tr>
+                          <td class="">Status Perkawinan</td>
+                          <td class="">Belum Kawin</td>
+                        </tr>
+                        <tr>
+                          <td class="">Pekerjaan</td>
+                          <td class="">Mahasiswa</td>
+                        </tr>
+                        <tr>
+                          <td class="">Kewarganegaraan</td>
+                          <td class="">WNI</td>
+                        </tr>
+                    </table>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+<script src="js/bootstrap.bundle.min.js"></script>>
+
+<script src="js/sweetalert.min.js"></script>
+<script src="js/jquery.rfid.js"></script>
+
+
+	<script type="text/javascript">
+
+		// Parses raw scan into name and ID number
+		var rfidParser = function (rawData) {
+			console.log(rawData, rawData.length);
+		    if (rawData.length != 11) return null;
+			else return rawData;
+
+		};
+
+		// Called on a good scan (company card recognized)
+		var goodScan = function (cardData) {
+       $("#foto-diri").html("<img src='images/ktp.jpg' class='img-thumbnail rounded'>").hide().fadeIn(3000);
+       $("#tabel-info").hide().fadeIn(3000);
+       $(".loading").hide();
+       swal({
+          title: "Scanning Berhasil",
+          text: "Data Ditemukan",
+          icon: "success",
+          timer:2000,
+        });
+
+	    };
+
+		// Called on a bad scan (company card not recognized)
+		var badScan = function() {
+		    console.log("Bad Scan.");
+		};
+
+		// Initialize the plugin.
+		$.rfidscan({
+		    parser: rfidParser,
+		    success: goodScan,
+		    error: badScan
+		});
+
+		</script>
+
+
+  </body>
+</html>
